@@ -89,7 +89,7 @@ export default {
 
                             //fire the coins watcher in the state manager...
                             vt.$store.dispatch('setCoins');
-			    vt.$store.dispatch('setUserMessage');
+                            vt.$store.dispatch('setUserMessage');
                         }
                     }); 
             }
@@ -152,16 +152,18 @@ export default {
                             //check victory states here...
                             let victory = "";
                             let coinsUp = 0;
-                            //jackpot check:
-                            if(vt.box1.val == vt.box2.val && vt.box2.val == vt.box3.val){
-                                victory = "jackpot";
-                                coinsUp = 200;
-                            }
 
                             //could loop here, but there aren't many combinations..
                             if(vt.box1.val == vt.box2.val || vt.box1.val == vt.box3.val || vt.box2.val == vt.box3.val){
                                 victory = "standard";
                                 coinsUp = 10;
+                            }
+
+                            //jackpot check:
+                            //above state will also be true so this check has to be done after...
+                            if(vt.box1.val == vt.box2.val && vt.box2.val == vt.box3.val){
+                                victory = "jackpot";
+                                coinsUp = 200;
                             }
 
                             vt.localCredits += coinsUp;

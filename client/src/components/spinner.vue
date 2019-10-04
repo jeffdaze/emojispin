@@ -89,6 +89,7 @@ export default {
 
                             //fire the coins watcher in the state manager...
                             vt.$store.dispatch('setCoins');
+			    vt.$store.dispatch('setUserMessage');
                         }
                     }); 
             }
